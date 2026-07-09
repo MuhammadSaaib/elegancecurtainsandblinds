@@ -1,0 +1,40 @@
+diff --git a/src/components/site/SiteFooter.tsx b/src/components/site/SiteFooter.tsx
+index 90c8a15..3ecc1d5 100644
+--- a/src/components/site/SiteFooter.tsx
++++ b/src/components/site/SiteFooter.tsx
+@@ -97,22 +97,6 @@ export function SiteFooter() {
+               <a href={`mailto:${SITE.email}`} className="hover:text-accent">{SITE.email}</a>
+             </li>
+           </ul>
+-
+-          <form className="mt-6" onSubmit={(e) => e.preventDefault()}>
+-            <label className="text-xs uppercase tracking-[0.24em] text-primary-foreground/60">
+-              Newsletter
+-            </label>
+-            <div className="mt-2 flex overflow-hidden rounded-full border border-primary-foreground/20 bg-white/5">
+-              <input
+-                type="email"
+-                placeholder="Your email"
+-                className="flex-1 bg-transparent px-4 py-2.5 text-sm placeholder:text-primary-foreground/40 focus:outline-none"
+-              />
+-              <button className="bg-accent px-4 text-xs font-semibold uppercase tracking-wider text-accent-foreground">
+-                Join
+-              </button>
+-            </div>
+-          </form>
+         </div>
+       </div>
+ 
+diff --git a/src/lib/site.ts b/src/lib/site.ts
+index 2aed0da..440af00 100644
+--- a/src/lib/site.ts
++++ b/src/lib/site.ts
+@@ -7,7 +7,7 @@ export const SITE = {
+   instagram: "https://instagram.com/elegancecurtains.ae",
+   instagramHandle: "@elegancecurtains.ae",
+   facebook: "https://www.facebook.com/share/18mN9kizE5/?mibextid=wwXIfr",
+-  email: "hello@elegancecurtains.ae",
++  email: "elegancecurtainsandblindsuae@gmail.com",
+   locations: ["Dubai", "Abu Dhabi"],
+   address: "Shop No. FBD 14 Tai Zhan Building, Dragon Mart 1, Dubai",
+ } as const;

@@ -1,0 +1,53 @@
+diff --git a/src/components/site/SiteHeader.tsx b/src/components/site/SiteHeader.tsx
+index 78500b2..027db50 100644
+--- a/src/components/site/SiteHeader.tsx
++++ b/src/components/site/SiteHeader.tsx
+@@ -52,14 +52,16 @@ export function SiteHeader() {
+             </span>
+           </Link>
+ 
+-          <nav className="hidden lg:block">
+-            <ul className="flex gap-8">
++          <nav className="hidden h-full lg:block">
++            <ul className="flex h-full items-stretch gap-8">
+               {NAV.map((item) => (
+-                <li key={item.href}>
++                <li key={item.href} className="flex items-stretch">
+                   <Link
+                     to={item.href}
+-                    className="text-[0.95rem] font-medium text-foreground transition-colors hover:text-royal"
+-                    activeProps={{ className: "text-royal" }}
++                    className="relative flex items-center text-[0.95rem] font-medium text-foreground transition-colors hover:text-royal after:absolute after:bottom-0 after:left-1/2 after:h-[3px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-royal after:transition-all after:duration-200"
++                    activeProps={{
++                      className: "text-royal after:w-6",
++                    }}
+                   >
+                     {item.label}
+                   </Link>
+@@ -101,7 +103,13 @@ export function SiteHeader() {
+             <button
+               onClick={() => setOpen((v) => !v)}
+               aria-label="Menu"
+-              className="grid h-10 w-10 place-items-center rounded-full border border-border text-primary lg:hidden"
++              aria-expanded={open}
++              className={cn(
++                "grid h-10 w-10 place-items-center rounded-full border transition-colors lg:hidden",
++                open
++                  ? "border-royal bg-royal text-white"
++                  : "border-border text-primary"
++              )}
+             >
+               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+             </button>
+@@ -115,7 +123,10 @@ export function SiteHeader() {
+                 <Link
+                   key={item.href}
+                   to={item.href}
+-                  className="py-3 text-base font-medium text-foreground hover:text-royal"
++                  className="border-l-[3px] border-transparent py-3 pl-3 -ml-3 text-base font-medium text-foreground transition-colors hover:text-royal"
++                  activeProps={{
++                    className: "border-l-royal bg-royal/5 text-royal",
++                  }}
+                 >
+                   {item.label}
+                 </Link>
