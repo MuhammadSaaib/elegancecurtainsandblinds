@@ -92,9 +92,14 @@ export function SiteFooter() {
                 {SITE.instagramHandle}
               </a>
             </li>
-            <li className="flex items-center gap-3">
-              <Mail className="h-4 w-4 text-accent" />
-              <a href={`mailto:${SITE.email}`} className="hover:text-accent">{SITE.email}</a>
+            <li className="flex items-start gap-3">
+              <Mail className="h-4 w-4 mt-0.5 text-accent shrink-0" />
+              <a
+                href={`mailto:${SITE.email}`}
+                className="hover:text-accent break-all leading-relaxed"
+              >
+                {SITE.email}
+              </a>
             </li>
           </ul>
         </div>
