@@ -32,6 +32,7 @@ export const ESTIMATE_PRODUCTS = [
   { id: "sheer-eyelet-curtains", name: "Sheers Eyelet Curtains", category: "Curtains", w: 2, h: 3, price: 527 },
   { id: "wooden-blinds", name: "Wooden Blinds", category: "Blinds", w: 1.5, h: 2, price: 716 },
   { id: "aluminium-blinds", name: "Aluminium Blinds", category: "Blinds", w: 1.5, h: 2, price: 428 },
+  { id: "venetian-blinds", name: "Venetian Blinds", category: "Blinds", w: 1.5, h: 2, price: 500 },
   { id: "blackout-roller-blinds", name: "Blackout Roller Blinds", category: "Blinds", w: 1.5, h: 2, price: 347 },
   { id: "sheer-roman-blinds", name: "Sheers Roman Blinds", category: "Blinds", w: 1.5, h: 2, price: 418 },
   { id: "blackout-roman-blinds", name: "Blackout Roman Blinds", category: "Blinds", w: 1.5, h: 2, price: 528 },
@@ -42,6 +43,8 @@ export const ESTIMATE_PRODUCTS = [
   { id: "wave-curtains-sheers", name: "Wave Curtains + Sheers", category: "Curtains", w: 2, h: 3, price: 1310 },
   { id: "pinch-pleat-sheers", name: "Pinch Pleat Sheers", category: "Curtains", w: 2, h: 3, price: 490 },
   { id: "pinch-pleat-blackout", name: "Pinch Pleat Blackout", category: "Curtains", w: 2, h: 3, price: 765 },
+  { id: "sheer-roman-curtains", name: "Sheers Roman Curtains", category: "Curtains", w: 2, h: 3, price: 418 },
+  { id: "sheer-curtains", name: "Sheer Curtains", category: "Curtains", w: 2, h: 3, price: 490 },
   {
     id: "pinch-pleat-blackout-sheers",
     name: "Pinch Pleat Blackout + Sheers",
@@ -73,11 +76,13 @@ export const PRODUCT_IMAGES: Record<string, string> = {
   "zebra-blinds": blindsImg,
   "wooden-blinds": blindsImg,
   "aluminium-blinds": blindsImg,
+  "venetian-blinds": blindsImg,
   "blackout-roller-blinds": blindsImg,
   "sheer-roman-blinds": blindsImg,
   "blackout-roman-blinds": blindsImg,
   "motorized-blinds": blindsImg,
   // Curtains
+  "sheer-curtains": curtainsImg,
   "sheer-eyelet-curtains": curtainsImg,
   "blackout-eyelet-curtains": curtainsImg,
   "wave-curtains": curtainsImg,
@@ -85,6 +90,7 @@ export const PRODUCT_IMAGES: Record<string, string> = {
   "wave-curtains-sheers": curtainsImg,
   "pinch-pleat-sheers": curtainsImg,
   "pinch-pleat-blackout": curtainsImg,
+  "sheer-roman-curtains": curtainsImg,
   "pinch-pleat-blackout-sheers": curtainsImg,
   "motorized-curtains-sheers": curtainsImg,
 };
