@@ -1,4 +1,8 @@
+import curtainsImg from "@/assets/curtains.jpg";
+import blindsImg from "@/assets/blinds.jpg";
+
 export const SITE = {
+
   name: "Elegance Curtains & Blinds",
   tagline: "A Legacy of Refinement",
   phone: "+971 54 711 6465",
@@ -55,3 +59,37 @@ export const ESTIMATE_PRODUCTS = [
     warranty: true,
   },
 ] as const;
+
+
+
+/**
+ * Product-specific imagery for the estimate calculator preview.
+ * Add per-product images here as they become available; missing entries
+ * fall back to the category image automatically.
+ */
+export const PRODUCT_IMAGES: Record<string, string> = {
+  // Blinds
+  "zebra-blinds": blindsImg,
+  "wooden-blinds": blindsImg,
+  "aluminium-blinds": blindsImg,
+  "blackout-roller-blinds": blindsImg,
+  "sheer-roman-blinds": blindsImg,
+  "blackout-roman-blinds": blindsImg,
+  "motorized-blinds": blindsImg,
+  // Curtains
+  "sheer-eyelet-curtains": curtainsImg,
+  "blackout-eyelet-curtains": curtainsImg,
+  "wave-curtains": curtainsImg,
+  "wave-sheers": curtainsImg,
+  "wave-curtains-sheers": curtainsImg,
+  "pinch-pleat-sheers": curtainsImg,
+  "pinch-pleat-blackout": curtainsImg,
+  "pinch-pleat-blackout-sheers": curtainsImg,
+  "motorized-curtains-sheers": curtainsImg,
+};
+
+export const CATEGORY_FALLBACK_IMAGE: Record<string, string> = {
+  Blinds: blindsImg,
+  Curtains: curtainsImg,
+};
+

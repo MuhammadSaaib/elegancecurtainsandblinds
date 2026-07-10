@@ -80,7 +80,7 @@ export function CollectionPage({
   title: string;
   intro: string;
   image: string;
-  items: { name: string; from?: number; desc: string }[];
+  items: { name: string; from?: number; desc: string; estimateId?: string }[];
 }) {
   return (
     <div className="bg-background">
@@ -121,9 +121,14 @@ export function CollectionPage({
                   </div>
                 )}
                 <div className="mt-6 flex gap-2">
-                  <Link to="/estimate" className="flex-1 rounded-full border border-primary py-2.5 text-center text-[11px] font-semibold uppercase tracking-wider text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+                  <Link
+                    to="/estimate"
+                    search={it.estimateId ? { product: it.estimateId } : undefined}
+                    className="flex-1 rounded-full border border-primary py-2.5 text-center text-[11px] font-semibold uppercase tracking-wider text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                  >
                     Estimate
                   </Link>
+
                   <Link to="/book" className="flex-1 rounded-full bg-accent py-2.5 text-center text-[11px] font-semibold uppercase tracking-wider text-accent-foreground hover:bg-primary hover:text-primary-foreground transition-colors">
                     Book Visit
                   </Link>

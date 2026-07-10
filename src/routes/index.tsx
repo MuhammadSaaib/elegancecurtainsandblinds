@@ -30,7 +30,7 @@ import p5 from "@/assets/project5.jpg";
 import p6 from "@/assets/project6.jpg";
 
 import { BookingCard } from "@/components/site/BookingCard";
-import { EstimateCalculator } from "@/components/site/EstimateCalculator";
+import { QuickEstimateWizard } from "@/components/site/QuickEstimateWizard";
 import { SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
@@ -90,9 +90,9 @@ function Hero() {
           </p>
           <p className="mt-4 max-w-md text-[1.05rem] leading-[1.7] text-muted-foreground">
             From fabric selection to final installation in as little as{" "}
-            <span className="font-semibold text-primary">3 days</span> — luxury custom
-            curtains, blinds and motorised systems, hand-finished for the most beautiful
-            homes and offices in Dubai & Abu Dhabi.
+            <span className="font-semibold text-primary">3–5 working days</span> —
+            luxury custom curtains, blinds and motorised systems, hand-finished for
+            the most beautiful homes and offices in Dubai & Abu Dhabi.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link
@@ -102,12 +102,18 @@ function Hero() {
               Book Free Home Visit
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
-            <Link
-              to="/estimate"
+            <a
+              href="#estimate"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("estimate")
+                  ?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
               className="inline-flex items-center gap-2 rounded-full border-2 border-primary bg-white px-6 py-3.5 text-[0.9rem] font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
             >
               Get Instant Estimate
-            </Link>
+            </a>
           </div>
 
           {/* Rating pill */}
@@ -119,7 +125,7 @@ function Hero() {
             </div>
             <span className="font-semibold text-primary">4.9 / 5</span>
             <span className="h-3 w-px bg-border" />
-            <span>10,000+ Happy Customers</span>
+            <span>Trusted by homes across the UAE</span>
           </div>
 
           {/* Wave */}
@@ -197,7 +203,7 @@ function BookingStrip() {
 function TrustStrip() {
   const items = [
     { icon: Star, label: "4.9 Google Rating" },
-    { icon: Users, label: "10,000+ Customers" },
+    { icon: Users, label: "Trusted UAE-wide" },
     { icon: Award, label: "1 Year Warranty" },
     { icon: Hammer, label: "Free Installation" },
     { icon: Ruler, label: "Free Measurement" },
@@ -225,7 +231,7 @@ function WhyTrust() {
     { icon: Users, title: "Experienced Designers", copy: "In-home consultations with senior designers who understand your space." },
     { icon: Award, title: "Luxury Finishing", copy: "Hand-stitched hems, weighted pleats and bespoke hardware." },
     { icon: Heart, title: "Honest Pricing", copy: "Transparent quotes with no hidden charges. Ever." },
-    { icon: Truck, title: "Fast Delivery", copy: "Custom production delivered in as little as 5 working days." },
+    { icon: Truck, title: "Fast Delivery", copy: "Custom production delivered in as little as 3–5 working days." },
     { icon: Check, title: "Dedicated Support", copy: "A single point of contact from consultation to installation." },
     { icon: Clock, title: "1 Year Warranty", copy: "Comprehensive warranty on materials, motors and workmanship." },
   ];
@@ -235,7 +241,7 @@ function WhyTrust() {
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.32em] text-accent gold-line">Why Elegance</p>
           <h2 className="mt-5 font-display text-4xl md:text-5xl text-primary leading-tight">
-            Why over 10,000 customers trust Elegance
+            Why homeowners across the UAE trust Elegance
           </h2>
           <p className="mt-4 text-muted-foreground">
             We're not simply a curtain supplier. We're a design partner who shapes
@@ -339,18 +345,18 @@ function Collections() {
 /* ================= ESTIMATE ================= */
 function EstimateSection() {
   return (
-    <section id="estimate" className="py-24 md:py-32">
+    <section id="estimate" className="py-24 md:py-32 scroll-mt-24">
       <div className="container-luxury">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-xs uppercase tracking-[0.32em] text-accent">Instant Estimate</p>
           <h2 className="mt-5 font-display text-4xl md:text-5xl text-primary">Get Instant Estimate</h2>
           <p className="mt-4 text-muted-foreground">
-            Select your preferred product and instantly view an estimated price
-            including installation, delivery and premium fabric.
+            Four quick steps — window size, fabric, control type — and you'll see
+            a transparent price range including installation and delivery.
           </p>
         </div>
         <div className="mt-14">
-          <EstimateCalculator />
+          <QuickEstimateWizard />
         </div>
       </div>
     </section>
@@ -656,7 +662,7 @@ const FAQS = [
   },
   {
     q: "How long does it take from booking to installation?",
-    a: "From fabric selection to installation, everything is done in as little as 3 days. After the home visit and once you approve your quote, we start crafting your custom curtains and book your installation. Fast, simple and fully managed.",
+    a: "From fabric selection to installation, everything is typically done in 3–5 working days. After the home visit and once you approve your quote, we start crafting your custom curtains and book your installation. Fast, simple and fully managed.",
   },
   {
     q: "What types of curtains and blinds can I choose from?",

@@ -1,19 +1,30 @@
 import { useMemo, useState } from "react";
 import { ArrowRight, Calculator, Check } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { ESTIMATE_CATEGORIES, ESTIMATE_PRODUCTS } from "@/lib/site";
+import {
+  CATEGORY_FALLBACK_IMAGE,
+  ESTIMATE_CATEGORIES,
+  ESTIMATE_PRODUCTS,
+  PRODUCT_IMAGES,
+} from "@/lib/site";
 
 const PROPERTY = ["Apartment", "Villa", "Office", "Hotel"] as const;
 
-export function EstimateCalculator() {
+export function EstimateCalculator({ initialProductId }: { initialProductId?: string }) {
+  const initialProduct =
+    ESTIMATE_PRODUCTS.find((p) => p.id === initialProductId) ?? null;
+
   const [category, setCategory] = useState<(typeof ESTIMATE_CATEGORIES)[number]>(
-    ESTIMATE_CATEGORIES[0]
+    (initialProduct?.category as (typeof ESTIMATE_CATEGORIES)[number]) ??
+      ESTIMATE_CATEGORIES[0]
   );
   const productsInCategory = useMemo(
     () => ESTIMATE_PRODUCTS.filter((p) => p.category === category),
     [category]
   );
-  const [productId, setProductId] = useState<string>(productsInCategory[0].id);
+  const [productId, setProductId] = useState<string>(
+    initialProduct?.id ?? productsInCategory[0].id
+  );
   const product = ESTIMATE_PRODUCTS.find((p) => p.id === productId)!;
   const [width, setWidth] = useState<number>(product.w);
   const [height, setHeight] = useState<number>(product.h);
@@ -27,6 +38,9 @@ export function EstimateCalculator() {
     return Math.round((product.price * ratio) / 5) * 5;
   }, [product, width, height]);
 
+  const productImage =
+    PRODUCT_IMAGES[product.id] ?? CATEGORY_FALLBACK_IMAGE[product.category];
+
   return (
     <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] items-start">
       <form
@@ -36,9 +50,26 @@ export function EstimateCalculator() {
         }}
         className="rounded-2xl bg-white border border-border p-6 md:p-8 shadow-[var(--shadow-soft)]"
       >
+        {productImage && (
+          <div className="mb-6 overflow-hidden rounded-xl border border-border">
+            <img
+              src={productImage}
+              alt={product.name}
+              className="h-48 w-full object-cover md:h-56"
+              key={productImage}
+            />
+            <div className="flex items-center justify-between gap-3 bg-secondary/60 px-4 py-2.5">
+              <span className="text-sm font-semibold text-primary">{product.name}</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                {product.category}
+              </span>
+            </div>
+          </div>
+        )}
         <div className="flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-accent">
           <Calculator className="h-4 w-4" /> Instant Estimate
         </div>
+
         <div className="grid gap-5 mt-6">
           <Field label="Category">
             <div className="grid grid-cols-2 gap-2">
@@ -111,7 +142,7 @@ export function EstimateCalculator() {
           </div>
 
           <Field label="Property Type">
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
               {PROPERTY.map((p) => (
                 <button
                   type="button"

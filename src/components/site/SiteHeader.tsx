@@ -41,16 +41,17 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50">
       <AnnouncementBar />
       <div className="border-b border-primary/10 bg-background shadow-[0_2px_12px_rgba(4,22,54,0.04)]">
-        <div className="container-luxury flex h-[72px] items-center justify-between gap-6">
-          <Link to="/" className="flex shrink-0 items-center gap-2.5">
-            <img src={logoUrl} alt="Elegance Curtains & Blinds" className="h-11 w-11 object-contain" />
+        <div className="container-luxury flex h-[84px] items-center justify-between gap-6">
+          <Link to="/" className="flex shrink-0 items-center gap-3">
+            <img src={logoUrl} alt="Elegance Curtains & Blinds" className="h-14 w-14 object-contain md:h-16 md:w-16" />
             <span className="flex flex-col leading-tight">
-              <strong className="font-display text-lg font-bold text-primary">Elegance</strong>
-              <small className="text-[0.7rem] uppercase tracking-[0.04em] text-muted-foreground">
+              <strong className="font-display text-xl font-bold text-primary md:text-2xl">Elegance</strong>
+              <small className="text-[0.72rem] uppercase tracking-[0.04em] text-muted-foreground">
                 Curtains & Blinds
               </small>
             </span>
           </Link>
+
 
           <nav className="hidden h-full lg:block">
             <ul className="flex h-full items-stretch gap-8">
