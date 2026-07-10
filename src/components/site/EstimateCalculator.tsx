@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { ArrowRight, Calculator, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import {
   CATEGORY_FALLBACK_IMAGE,
@@ -7,8 +7,6 @@ import {
   ESTIMATE_PRODUCTS,
   PRODUCT_IMAGES,
 } from "@/lib/site";
-
-const PROPERTY = ["Apartment", "Villa", "Office", "Hotel"] as const;
 
 export function EstimateCalculator({ initialProductId }: { initialProductId?: string }) {
   const initialProduct =
@@ -28,8 +26,6 @@ export function EstimateCalculator({ initialProductId }: { initialProductId?: st
   const product = ESTIMATE_PRODUCTS.find((p) => p.id === productId)!;
   const [width, setWidth] = useState<number>(product.w);
   const [height, setHeight] = useState<number>(product.h);
-  const [propertyType, setPropertyType] = useState<(typeof PROPERTY)[number]>("Apartment");
-  const [showResult, setShowResult] = useState(false);
 
   const price = useMemo(() => {
     const baseArea = product.w * product.h;
@@ -42,35 +38,41 @@ export function EstimateCalculator({ initialProductId }: { initialProductId?: st
     PRODUCT_IMAGES[product.id] ?? CATEGORY_FALLBACK_IMAGE[product.category];
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] items-start">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          setShowResult(true);
-        }}
-        className="rounded-2xl bg-white border border-border p-6 md:p-8 shadow-[var(--shadow-soft)]"
-      >
-        {productImage && (
-          <div className="mb-6 overflow-hidden rounded-xl border border-border">
-            <img
-              src={productImage}
-              alt={product.name}
-              className="h-48 w-full object-cover md:h-56"
-              key={productImage}
-            />
-            <div className="flex items-center justify-between gap-3 bg-secondary/60 px-4 py-2.5">
-              <span className="text-sm font-semibold text-primary">{product.name}</span>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                {product.category}
-              </span>
-            </div>
+    <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-border bg-white shadow-[var(--shadow-soft)]">
+      {/* Product showcase image */}
+      {productImage && (
+        <div className="relative">
+          <img
+            src={productImage}
+            alt={product.name}
+            className="h-[280px] w-full object-cover md:h-[380px]"
+            key={productImage}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/25 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 text-primary-foreground">
+            <p className="text-[11px] uppercase tracking-[0.28em] text-accent">{product.category}</p>
+            <h2 className="mt-2 font-display text-3xl leading-tight md:text-4xl">{product.name}</h2>
           </div>
-        )}
-        <div className="flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-accent">
-          <Calculator className="h-4 w-4" /> Instant Estimate
+        </div>
+      )}
+
+      <div className="p-6 md:p-10">
+        {/* Estimated price block (replaces the old blue card) */}
+        <div className="border-b border-border pb-6">
+          <p className="text-xs uppercase tracking-[0.28em] text-accent">Estimated Price</p>
+          <div className="mt-3 flex items-baseline gap-2">
+            <span className="font-display text-5xl md:text-6xl text-primary">
+              {price.toLocaleString()}
+            </span>
+            <span className="text-sm text-muted-foreground">AED</span>
+          </div>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {width}m × {height}m — includes installation, delivery & premium materials
+          </p>
         </div>
 
-        <div className="grid gap-5 mt-6">
+        {/* Form */}
+        <form onSubmit={(e) => e.preventDefault()} className="mt-8 grid gap-5">
           <Field label="Category">
             <div className="grid grid-cols-2 gap-2">
               {ESTIMATE_CATEGORIES.map((c) => (
@@ -84,7 +86,6 @@ export function EstimateCalculator({ initialProductId }: { initialProductId?: st
                     setProductId(firstInCategory.id);
                     setWidth(firstInCategory.w);
                     setHeight(firstInCategory.h);
-                    setShowResult(false);
                   }}
                   className={`rounded-lg border px-2 py-2.5 text-xs uppercase tracking-wider transition-colors ${
                     category === c
@@ -106,7 +107,6 @@ export function EstimateCalculator({ initialProductId }: { initialProductId?: st
                 setProductId(p.id);
                 setWidth(p.w);
                 setHeight(p.h);
-                setShowResult(false);
               }}
               className={inputCls}
             >
@@ -119,7 +119,7 @@ export function EstimateCalculator({ initialProductId }: { initialProductId?: st
           </Field>
 
           <div className="grid grid-cols-2 gap-4">
-            <Field label={`Width (m)`}>
+            <Field label="Width (m)">
               <input
                 type="number"
                 step="0.1"
@@ -129,7 +129,7 @@ export function EstimateCalculator({ initialProductId }: { initialProductId?: st
                 className={inputCls}
               />
             </Field>
-            <Field label={`Height (m)`}>
+            <Field label="Height (m)">
               <input
                 type="number"
                 step="0.1"
@@ -141,89 +141,22 @@ export function EstimateCalculator({ initialProductId }: { initialProductId?: st
             </Field>
           </div>
 
-          <Field label="Property Type">
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-              {PROPERTY.map((p) => (
-                <button
-                  type="button"
-                  key={p}
-                  onClick={() => setPropertyType(p)}
-                  className={`rounded-lg border px-2 py-2.5 text-xs uppercase tracking-wider transition-colors ${
-                    propertyType === p
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border text-foreground hover:border-accent"
-                  }`}
-                >
-                  {p}
-                </button>
-              ))}
-            </div>
-          </Field>
-
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <button
-              type="submit"
-              className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-primary py-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground hover:bg-royal"
+          {/* Two CTA buttons */}
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+            <Link
+              to="/contact"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-royal"
             >
-              Calculate Estimate <ArrowRight className="h-4 w-4" />
-            </button>
+              Get Estimate <ArrowRight className="h-4 w-4" />
+            </Link>
             <Link
               to="/book"
-              className="flex-1 inline-flex items-center justify-center rounded-full border border-primary py-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary hover:bg-primary hover:text-primary-foreground"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-accent-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
             >
-              Book Free Visit
+              Book Free Home Visit <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-        </div>
-      </form>
-
-      <div
-        className={`rounded-2xl p-8 border transition-all duration-500 ${
-          showResult
-            ? "bg-primary text-primary-foreground border-primary shadow-[var(--shadow-luxury)]"
-            : "bg-secondary/60 text-primary border-border"
-        }`}
-      >
-        <p className="text-xs uppercase tracking-[0.24em] opacity-70">Your Estimated Price</p>
-        <div className="mt-3 flex items-baseline gap-2">
-          <span className="font-display text-5xl md:text-6xl">
-            {showResult ? price.toLocaleString() : "—"}
-          </span>
-          <span className="text-sm opacity-80">AED</span>
-        </div>
-        <p className="mt-1 text-sm opacity-80">
-          {product.name} · {width}m × {height}m · {propertyType}
-        </p>
-        <ul className="mt-6 space-y-2.5 text-sm">
-          {[
-            "Installation Included",
-            "Delivery Included",
-            "Professional Fitting",
-            "Premium Materials",
-            ("warranty" in product && product.warranty) ? "1 Year Warranty Included" : "VAT Included",
-          ].map((item) => (
-            <li key={item} className="flex items-center gap-2.5">
-              <span
-                className={`grid h-5 w-5 place-items-center rounded-full ${
-                  showResult ? "bg-accent text-accent-foreground" : "bg-accent/30 text-primary"
-                }`}
-              >
-                <Check className="h-3 w-3" />
-              </span>
-              {item}
-            </li>
-          ))}
-        </ul>
-        <Link
-          to="/book"
-          className={`mt-8 inline-flex items-center gap-2 rounded-full px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition-colors ${
-            showResult
-              ? "bg-accent text-accent-foreground hover:bg-white hover:text-primary"
-              : "bg-primary text-primary-foreground hover:bg-royal"
-          }`}
-        >
-          Book Free Home Visit <ArrowRight className="h-4 w-4" />
-        </Link>
+        </form>
       </div>
     </div>
   );

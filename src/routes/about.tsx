@@ -23,7 +23,7 @@ export const Route = createFileRoute("/about")({
             <p className="mt-5 text-muted-foreground leading-relaxed">
               We began with a simple belief: the difference between a beautiful room
               and an ordinary one is often the window. Since our first installation,
-              we've completed over 10,000 projects across the Emirates — each one
+              we've completed hundreds of projects across the Emirates — each one
               measured, tailored and installed by our own team.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/about")({
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { n: "10,000+", l: "Homes Transformed" },
+              { n: "500+", l: "Homes Transformed" },
               { n: "4.9★", l: "Google Rating" },
               { n: "12+", l: "Years Crafting" },
               { n: "1 Yr", l: "Warranty" },

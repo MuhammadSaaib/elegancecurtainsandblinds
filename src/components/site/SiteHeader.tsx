@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Calculator, Instagram, Menu, Phone, X } from "lucide-react";
+import { Instagram, Menu, Phone, X } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import logoUrl from "@/assets/elegance-logo.png";
@@ -41,11 +41,11 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50">
       <AnnouncementBar />
       <div className="border-b border-primary/10 bg-background shadow-[0_2px_12px_rgba(4,22,54,0.04)]">
-        <div className="container-luxury flex h-[84px] items-center justify-between gap-6">
-          <Link to="/" className="flex shrink-0 items-center gap-3">
-            <img src={logoUrl} alt="Elegance Curtains & Blinds" className="h-14 w-14 object-contain md:h-16 md:w-16" />
-            <span className="flex flex-col leading-tight">
-              <strong className="font-display text-xl font-bold text-primary md:text-2xl">Elegance</strong>
+        <div className="container-luxury flex h-[110px] items-center justify-between gap-6 md:h-[124px]">
+          <Link to="/" className="flex shrink-0 items-center gap-4">
+            <img src={logoUrl} alt="Elegance Curtains & Blinds" className="h-20 w-20 object-contain md:h-24 md:w-24 lg:h-28 lg:w-28" />
+            <span className="hidden flex-col leading-tight sm:flex">
+              <strong className="font-display text-2xl font-bold text-primary md:text-3xl">Elegance</strong>
               <small className="text-[0.72rem] uppercase tracking-[0.04em] text-muted-foreground">
                 Curtains & Blinds
               </small>
@@ -88,13 +88,6 @@ export function SiteHeader() {
             >
               <WhatsAppIcon className="h-4 w-4" />
             </a>
-            <Link
-              to="/estimate"
-              className="hidden items-center gap-2 rounded-full border-2 border-primary bg-background px-5 py-2 text-[0.85rem] font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground md:inline-flex"
-            >
-              <Calculator className="h-4 w-4" />
-              Get Estimate
-            </Link>
             <Link
               to="/book"
               className="hidden items-center rounded-full bg-primary px-5 py-2.5 text-[0.85rem] font-semibold tracking-[0.02em] text-primary-foreground shadow-[0_4px_16px_rgba(4,22,54,0.25)] transition-all hover:bg-royal hover:-translate-y-px hover:shadow-[0_6px_24px_rgba(4,22,54,0.35)] sm:inline-flex"
@@ -148,12 +141,6 @@ export function SiteHeader() {
                   <WhatsAppIcon className="h-4 w-4" /> WhatsApp
                 </a>
               </div>
-              <Link
-                to="/estimate"
-                className="mt-3 inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary px-5 py-3 text-sm font-semibold text-primary"
-              >
-                <Calculator className="h-4 w-4" /> Get Estimate
-              </Link>
               <Link
                 to="/book"
                 className="mt-3 inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground"

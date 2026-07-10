@@ -30,7 +30,7 @@ import p5 from "@/assets/project5.jpg";
 import p6 from "@/assets/project6.jpg";
 
 import { BookingCard } from "@/components/site/BookingCard";
-import { QuickEstimateWizard } from "@/components/site/QuickEstimateWizard";
+
 import { SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
@@ -349,14 +349,20 @@ function EstimateSection() {
       <div className="container-luxury">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-xs uppercase tracking-[0.32em] text-accent">Instant Estimate</p>
-          <h2 className="mt-5 font-display text-4xl md:text-5xl text-primary">Get Instant Estimate</h2>
+          <h2 className="mt-5 font-display text-4xl md:text-5xl text-primary">Get an instant price estimate</h2>
           <p className="mt-4 text-muted-foreground">
-            Four quick steps — window size, fabric, control type — and you'll see
-            a transparent price range including installation and delivery.
+            Pick a product and enter your window dimensions — see a transparent
+            price including installation, delivery and premium materials.
           </p>
-        </div>
-        <div className="mt-14">
-          <QuickEstimateWizard />
+          <div className="mt-8">
+            <Link
+              to="/estimate"
+              className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-[0.95rem] font-semibold tracking-[0.02em] text-primary-foreground shadow-[0_4px_16px_rgba(4,22,54,0.25)] transition-all hover:bg-royal hover:-translate-y-px"
+            >
+              Get Instant Estimate
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

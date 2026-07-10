@@ -146,7 +146,6 @@ export function SimpleHero({
   eyebrow,
   title,
   subtitle,
-  image,
   children,
 }: {
   eyebrow: string;
@@ -156,8 +155,19 @@ export function SimpleHero({
   children?: ReactNode;
 }) {
   return (
-    <CreamSplitHero eyebrow={eyebrow} title={title} subtitle={subtitle} image={image}>
-      {children}
-    </CreamSplitHero>
+    <section className="border-b border-border bg-cream/40">
+      <div className="container-luxury py-10 md:py-14">
+        <p className="font-display italic text-accent text-sm tracking-[0.05em]">{eyebrow}</p>
+        <h1 className="mt-2 font-display text-3xl md:text-4xl font-bold leading-[1.15] text-foreground">
+          {title}
+        </h1>
+        {subtitle && (
+          <p className="mt-3 max-w-2xl text-[0.98rem] leading-[1.6] text-muted-foreground">
+            {subtitle}
+          </p>
+        )}
+        {children}
+      </div>
+    </section>
   );
 }
