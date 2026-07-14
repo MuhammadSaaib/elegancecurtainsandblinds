@@ -80,7 +80,7 @@ export function CollectionPage({
   title: string;
   intro: string;
   image: string;
-  items: { name: string; from?: number; desc: string; estimateId?: string }[];
+  items: { name: string; from?: number; desc: string; estimateId?: string; image?: string }[];
 }) {
   return (
     <div className="bg-background">
@@ -112,7 +112,18 @@ export function CollectionPage({
         <div className="container-luxury">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {items.map((it) => (
-              <div key={it.name} className="rounded-2xl border border-border bg-white p-7 hover-lift">
+              <div key={it.name} className="overflow-hidden rounded-2xl border border-border bg-white hover-lift">
+                {it.image && (
+                  <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+                    <img
+                      src={it.image}
+                      alt={it.name}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                )}
+                <div className="p-7">
                 <h3 className="font-display text-xl text-primary">{it.name}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
                 {it.from && (
@@ -132,6 +143,7 @@ export function CollectionPage({
                   <Link to="/book" className="flex-1 rounded-full bg-accent py-2.5 text-center text-[11px] font-semibold uppercase tracking-wider text-accent-foreground hover:bg-primary hover:text-primary-foreground transition-colors">
                     Book Visit
                   </Link>
+                </div>
                 </div>
               </div>
             ))}

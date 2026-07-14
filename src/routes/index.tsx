@@ -275,7 +275,7 @@ function Collections() {
       title: "Curtains",
       href: "/curtains",
       img: curtainsImg,
-      copy: "Sheers, blackout, wave, pinch pleat, eyelet, Roman & motorized curtains — tailored to your window.",
+      copy: "Sheers, blackout, wave, pinch pleat, eyelet & motorized curtains — tailored to your window.",
       items: ["Sheer Curtains", "Blackout Curtains", "Wave Curtains", "Pinch Pleat", "Motorized"],
     },
     {

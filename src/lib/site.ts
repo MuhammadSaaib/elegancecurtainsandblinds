@@ -1,5 +1,21 @@
 import curtainsImg from "@/assets/curtains.jpg";
 import blindsImg from "@/assets/blinds.jpg";
+import zebraAsset from "@/assets/blinds/zebra_blind.jpg";
+import rollerAsset from "@/assets/blinds/blackout_blind.jpg";
+import romanSheerAsset from "@/assets/blinds/see_through_blind.jpg";
+import romanBlackoutAsset from "@/assets/blinds/roman_blind.jpg";
+import woodenAsset from "@/assets/blinds/wooden_blind.jpg";
+import aluminiumAsset from "@/assets/blinds/aluminium_blind.jpg";
+import venetianAsset from "@/assets/blinds/wooden_ribbon_blind.jpg";
+import motorizedAsset from "@/assets/blinds/motorized_blind.jpg";
+import sheerCurtainAsset from "@/assets/curtains/sheer_curtain.jpg";
+import blackoutCurtainAsset from "@/assets/curtains/blackout_curtain.jpg";
+import waveCurtainAsset from "@/assets/curtains/wave_curtain.jpg";
+import pinchPleatAsset from "@/assets/curtains/pinch_pleat.jpg";
+import pinchPleatSheerAsset from "@/assets/curtains/pinch_pleat_sheer.png";
+import eyeletAsset from "@/assets/curtains/eyelet_curtains.png";
+import sheerWaveAsset from "@/assets/curtains/sheer_wave.png";
+import motorizedCurtainAsset from "@/assets/curtains/motorized_curtain.jpg";
 
 export const SITE = {
 
@@ -43,7 +59,7 @@ export const ESTIMATE_PRODUCTS = [
   { id: "wave-curtains-sheers", name: "Wave Curtains + Sheers", category: "Curtains", w: 2, h: 3, price: 1310 },
   { id: "pinch-pleat-sheers", name: "Pinch Pleat Sheers", category: "Curtains", w: 2, h: 3, price: 490 },
   { id: "pinch-pleat-blackout", name: "Pinch Pleat Blackout", category: "Curtains", w: 2, h: 3, price: 765 },
-  { id: "sheer-roman-curtains", name: "Sheers Roman Curtains", category: "Curtains", w: 2, h: 3, price: 418 },
+  
   { id: "sheer-curtains", name: "Sheer Curtains", category: "Curtains", w: 2, h: 3, price: 490 },
   {
     id: "pinch-pleat-blackout-sheers",
@@ -73,26 +89,25 @@ export const ESTIMATE_PRODUCTS = [
  */
 export const PRODUCT_IMAGES: Record<string, string> = {
   // Blinds
-  "zebra-blinds": blindsImg,
-  "wooden-blinds": blindsImg,
-  "aluminium-blinds": blindsImg,
-  "venetian-blinds": blindsImg,
-  "blackout-roller-blinds": blindsImg,
-  "sheer-roman-blinds": blindsImg,
-  "blackout-roman-blinds": blindsImg,
-  "motorized-blinds": blindsImg,
+  "zebra-blinds": zebraAsset,
+  "wooden-blinds": woodenAsset,
+  "aluminium-blinds": aluminiumAsset,
+  "venetian-blinds": venetianAsset,
+  "blackout-roller-blinds": rollerAsset,
+  "sheer-roman-blinds": romanSheerAsset,
+  "blackout-roman-blinds": romanBlackoutAsset,
+  "motorized-blinds": motorizedAsset,
   // Curtains
-  "sheer-curtains": curtainsImg,
-  "sheer-eyelet-curtains": curtainsImg,
-  "blackout-eyelet-curtains": curtainsImg,
-  "wave-curtains": curtainsImg,
-  "wave-sheers": curtainsImg,
-  "wave-curtains-sheers": curtainsImg,
-  "pinch-pleat-sheers": curtainsImg,
-  "pinch-pleat-blackout": curtainsImg,
-  "sheer-roman-curtains": curtainsImg,
-  "pinch-pleat-blackout-sheers": curtainsImg,
-  "motorized-curtains-sheers": curtainsImg,
+  "sheer-curtains": sheerCurtainAsset,
+  "sheer-eyelet-curtains": eyeletAsset,
+  "blackout-eyelet-curtains": blackoutCurtainAsset,
+  "wave-curtains": waveCurtainAsset,
+  "wave-sheers": sheerWaveAsset,
+  "wave-curtains-sheers": sheerWaveAsset,
+  "pinch-pleat-sheers": pinchPleatSheerAsset,
+  "pinch-pleat-blackout": pinchPleatAsset,
+  "pinch-pleat-blackout-sheers": pinchPleatSheerAsset,
+  "motorized-curtains-sheers": motorizedCurtainAsset,
 };
 
 export const CATEGORY_FALLBACK_IMAGE: Record<string, string> = {
