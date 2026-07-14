@@ -55,10 +55,8 @@ export const ESTIMATE_PRODUCTS = [
   { id: "motorized-blinds", name: "Motorized Blinds", category: "Blinds", w: 1.5, h: 2, price: 1275, warranty: true },
   { id: "blackout-eyelet-curtains", name: "Blackout Eyelet Curtains", category: "Curtains", w: 2, h: 3, price: 786 },
   { id: "wave-curtains", name: "Wave Curtains", category: "Curtains", w: 2, h: 3, price: 845 },
-  { id: "wave-sheers", name: "Wave Sheers", category: "Curtains", w: 2, h: 3, price: 595 },
   { id: "wave-curtains-sheers", name: "Wave Curtains + Sheers", category: "Curtains", w: 2, h: 3, price: 1310 },
   { id: "pinch-pleat-sheers", name: "Pinch Pleat Sheers", category: "Curtains", w: 2, h: 3, price: 490 },
-  { id: "pinch-pleat-blackout", name: "Pinch Pleat Blackout", category: "Curtains", w: 2, h: 3, price: 765 },
   
   { id: "sheer-curtains", name: "Sheer Curtains", category: "Curtains", w: 2, h: 3, price: 490 },
   {
@@ -102,10 +100,8 @@ export const PRODUCT_IMAGES: Record<string, string> = {
   "sheer-eyelet-curtains": eyeletAsset,
   "blackout-eyelet-curtains": blackoutCurtainAsset,
   "wave-curtains": waveCurtainAsset,
-  "wave-sheers": sheerWaveAsset,
   "wave-curtains-sheers": sheerWaveAsset,
-  "pinch-pleat-sheers": pinchPleatSheerAsset,
-  "pinch-pleat-blackout": pinchPleatAsset,
+  "pinch-pleat-sheers": pinchPleatAsset,
   "pinch-pleat-blackout-sheers": pinchPleatSheerAsset,
   "motorized-curtains-sheers": motorizedCurtainAsset,
 };
