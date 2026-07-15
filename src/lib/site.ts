@@ -6,7 +6,7 @@ import romanSheerAsset from "@/assets/blinds/see_through_blind.jpg";
 import romanBlackoutAsset from "@/assets/blinds/roman_blind.jpg";
 import woodenAsset from "@/assets/blinds/wooden_blind.jpg";
 import aluminiumAsset from "@/assets/blinds/aluminium_blind.jpg";
-import woodenRibbonAsset from "@/assets/blinds/wooden_ribbon_blind.jpg";
+import venetianAsset from "@/assets/blinds/wooden_ribbon_blind.jpg";
 import motorizedAsset from "@/assets/blinds/motorized_blind.jpg";
 import sheerCurtainAsset from "@/assets/curtains/sheer_curtain.jpg";
 import blackoutCurtainAsset from "@/assets/curtains/blackout_curtain.jpg";
@@ -48,15 +48,17 @@ export const ESTIMATE_PRODUCTS = [
   { id: "sheer-eyelet-curtains", name: "Sheers Eyelet Curtains", category: "Curtains", w: 2, h: 3, price: 527 },
   { id: "wooden-blinds", name: "Wooden Blinds", category: "Blinds", w: 1.5, h: 2, price: 716 },
   { id: "aluminium-blinds", name: "Aluminium Blinds", category: "Blinds", w: 1.5, h: 2, price: 428 },
-  { id: "venetian-blinds", name: "Wooden Ribbon Blinds", category: "Blinds", w: 1.5, h: 2, price: 500 },
+  { id: "venetian-blinds", name: "Venetian Blinds", category: "Blinds", w: 1.5, h: 2, price: 500 },
   { id: "blackout-roller-blinds", name: "Blackout Roller Blinds", category: "Blinds", w: 1.5, h: 2, price: 347 },
   { id: "sheer-roman-blinds", name: "Sheers Roman Blinds", category: "Blinds", w: 1.5, h: 2, price: 418 },
   { id: "blackout-roman-blinds", name: "Blackout Roman Blinds", category: "Blinds", w: 1.5, h: 2, price: 528 },
   { id: "motorized-blinds", name: "Motorized Blinds", category: "Blinds", w: 1.5, h: 2, price: 1275, warranty: true },
   { id: "blackout-eyelet-curtains", name: "Blackout Eyelet Curtains", category: "Curtains", w: 2, h: 3, price: 786 },
   { id: "wave-curtains", name: "Wave Curtains", category: "Curtains", w: 2, h: 3, price: 845 },
+  { id: "wave-sheers", name: "Wave Sheers", category: "Curtains", w: 2, h: 3, price: 595 },
   { id: "wave-curtains-sheers", name: "Wave Curtains + Sheers", category: "Curtains", w: 2, h: 3, price: 1310 },
   { id: "pinch-pleat-sheers", name: "Pinch Pleat Sheers", category: "Curtains", w: 2, h: 3, price: 490 },
+  { id: "pinch-pleat-blackout", name: "Pinch Pleat Blackout", category: "Curtains", w: 2, h: 3, price: 765 },
   
   { id: "sheer-curtains", name: "Sheer Curtains", category: "Curtains", w: 2, h: 3, price: 490 },
   {
@@ -90,7 +92,7 @@ export const PRODUCT_IMAGES: Record<string, string> = {
   "zebra-blinds": zebraAsset,
   "wooden-blinds": woodenAsset,
   "aluminium-blinds": aluminiumAsset,
-  "venetian-blinds": woodenRibbonAsset,
+  "venetian-blinds": venetianAsset,
   "blackout-roller-blinds": rollerAsset,
   "sheer-roman-blinds": romanSheerAsset,
   "blackout-roman-blinds": romanBlackoutAsset,
@@ -100,8 +102,10 @@ export const PRODUCT_IMAGES: Record<string, string> = {
   "sheer-eyelet-curtains": eyeletAsset,
   "blackout-eyelet-curtains": blackoutCurtainAsset,
   "wave-curtains": waveCurtainAsset,
+  "wave-sheers": sheerWaveAsset,
   "wave-curtains-sheers": sheerWaveAsset,
-  "pinch-pleat-sheers": pinchPleatAsset,
+  "pinch-pleat-sheers": pinchPleatSheerAsset,
+  "pinch-pleat-blackout": pinchPleatAsset,
   "pinch-pleat-blackout-sheers": pinchPleatSheerAsset,
   "motorized-curtains-sheers": motorizedCurtainAsset,
 };

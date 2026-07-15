@@ -29,14 +29,6 @@ import p4 from "@/assets/project4.jpg";
 import p5 from "@/assets/project5.jpg";
 import p6 from "@/assets/project6.jpg";
 
-// Same product photos used on the /estimate page, so Best Sellers cards match what you land on.
-import sheerWaveAsset from "@/assets/curtains/sheer_wave.png";
-import motorizedCurtainAsset from "@/assets/curtains/motorized_curtain.jpg";
-import zebraAsset from "@/assets/blinds/zebra_blind.jpg";
-import blackoutCurtainAsset from "@/assets/curtains/blackout_curtain.jpg";
-import woodenAsset from "@/assets/blinds/wooden_blind.jpg";
-import motorizedBlindAsset from "@/assets/blinds/motorized_blind.jpg";
-
 import { BookingCard } from "@/components/site/BookingCard";
 
 import { SITE } from "@/lib/site";
@@ -290,7 +282,7 @@ function Collections() {
       title: "Blinds",
       href: "/blinds",
       img: blindsImg,
-      copy: "Zebra, roller, Roman, wooden, aluminium, wooden ribbon and motorized blinds for every setting.",
+      copy: "Zebra, roller, Roman, wooden, aluminium, venetian and motorized blinds for every setting.",
       items: ["Zebra Blinds", "Roller Blinds", "Wooden Blinds", "Aluminium", "Motorized"],
     },
   ];
@@ -380,12 +372,12 @@ function EstimateSection() {
 /* ================= BEST SELLERS ================= */
 function BestSellers() {
   const items = [
-    { name: "Wave Curtains + Sheers", img: sheerWaveAsset, from: 1310, estimateId: "wave-curtains-sheers" },
-    { name: "Motorized Curtains + Sheers", img: motorizedCurtainAsset, from: 1876, estimateId: "motorized-curtains-sheers" },
-    { name: "Zebra Blinds", img: zebraAsset, from: 1025, estimateId: "zebra-blinds" },
-    { name: "Blackout Eyelet Curtains", img: blackoutCurtainAsset, from: 786, estimateId: "blackout-eyelet-curtains" },
-    { name: "Wooden Blinds", img: woodenAsset, from: 716, estimateId: "wooden-blinds" },
-    { name: "Motorized Blinds", img: motorizedBlindAsset, from: 1275, estimateId: "motorized-blinds" },
+    { name: "Wave Curtains + Sheers", img: p1, from: 1310 },
+    { name: "Motorized Curtains + Sheers", img: p5, from: 1876 },
+    { name: "Zebra Blinds", img: p3, from: 1025 },
+    { name: "Blackout Eyelet Curtains", img: p2, from: 786 },
+    { name: "Wooden Blinds", img: p6, from: 716 },
+    { name: "Motorized Blinds", img: p4, from: 1275 },
   ];
   return (
     <section className="py-24 md:py-32 bg-primary text-white">
@@ -403,18 +395,14 @@ function BestSellers() {
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((it) => (
             <div key={it.name} className="group rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-accent/50 transition-colors">
-              <Link to="/estimate" search={{ product: it.estimateId }} className="block">
-                <div className="image-zoom aspect-[4/3]">
-                  <img src={it.img} loading="lazy" alt={it.name} className="h-full w-full object-cover" />
-                </div>
-                <div className="px-6 pt-6">
-                  <h3 className="font-display text-xl">{it.name}</h3>
-                  <div className="mt-1 text-sm text-white/60">Starting from <span className="text-accent font-semibold">AED {it.from.toLocaleString()}</span></div>
-                </div>
-              </Link>
-              <div className="p-6 pt-5">
-                <div className="flex gap-2">
-                  <Link to="/estimate" search={{ product: it.estimateId }} className="flex-1 rounded-full border border-white/30 py-2.5 text-center text-[11px] font-semibold uppercase tracking-wider hover:bg-white hover:text-primary transition-colors">
+              <div className="image-zoom aspect-[4/3]">
+                <img src={it.img} loading="lazy" alt={it.name} className="h-full w-full object-cover" />
+              </div>
+              <div className="p-6">
+                <h3 className="font-display text-xl">{it.name}</h3>
+                <div className="mt-1 text-sm text-white/60">Starting from <span className="text-accent font-semibold">AED {it.from.toLocaleString()}</span></div>
+                <div className="mt-5 flex gap-2">
+                  <Link to="/estimate" className="flex-1 rounded-full border border-white/30 py-2.5 text-center text-[11px] font-semibold uppercase tracking-wider hover:bg-white hover:text-primary transition-colors">
                     Quick Estimate
                   </Link>
                   <Link to="/book" className="flex-1 rounded-full bg-accent py-2.5 text-center text-[11px] font-semibold uppercase tracking-wider text-accent-foreground hover:bg-white transition-colors">
