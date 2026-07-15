@@ -6,7 +6,7 @@ import rollerAsset from "@/assets/blinds/blackout_blind.jpg";
 import romanAsset from "@/assets/blinds/roman_blind.jpg";
 import woodenAsset from "@/assets/blinds/wooden_blind.jpg";
 import aluminiumAsset from "@/assets/blinds/aluminium_blind.jpg";
-import venetianAsset from "@/assets/blinds/wooden_ribbon_blind.jpg";
+import woodenRibbonAsset from "@/assets/blinds/wooden_ribbon_blind.jpg";
 import motorizedAsset from "@/assets/blinds/motorized_blind.jpg";
 
 export const Route = createFileRoute("/blinds")({
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/blinds")({
         { name: "Roman Blinds", from: 418, estimateId: "sheer-roman-blinds", image: romanAsset, desc: "Soft cascading folds in sheer or blackout. A gentle alternative to hard blinds." },
         { name: "Wooden Blinds", from: 716, estimateId: "wooden-blinds", image: woodenAsset, desc: "Basswood slats with stained or painted finish. Warm, natural, timeless." },
         { name: "Aluminium Blinds", from: 428, estimateId: "aluminium-blinds", image: aluminiumAsset, desc: "Slim, durable metal slats for offices, kitchens and bathrooms." },
-        { name: "Venetian Blinds", from: 500, estimateId: "venetian-blinds", image: venetianAsset, desc: "Classic horizontal slats — adjust light, air and privacy with a twist." },
+        { name: "Wooden Ribbon Blinds", from: 500, estimateId: "venetian-blinds", image: woodenRibbonAsset, desc: "Classic horizontal slats — adjust light, air and privacy with a twist." },
         { name: "Motorized Blinds", from: 1275, estimateId: "motorized-blinds", image: motorizedAsset, desc: "Rechargeable or hardwired motors. Compatible with all major home automation systems." },
       ]}
     />

@@ -112,26 +112,34 @@ export function CollectionPage({
         <div className="container-luxury">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {items.map((it) => (
-              <div key={it.name} className="overflow-hidden rounded-2xl border border-border bg-white hover-lift">
-                {it.image && (
-                  <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-                    <img
-                      src={it.image}
-                      alt={it.name}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
+              <div key={it.name} className="group overflow-hidden rounded-2xl border border-border bg-white hover-lift">
+                <Link
+                  to="/estimate"
+                  search={it.estimateId ? { product: it.estimateId } : undefined}
+                  className="block"
+                >
+                  {it.image && (
+                    <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+                      <img
+                        src={it.image}
+                        alt={it.name}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                  )}
+                  <div className="px-7 pt-7">
+                    <h3 className="font-display text-xl text-primary">{it.name}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
+                    {it.from && (
+                      <div className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">
+                        Starting from <span className="text-accent font-semibold text-sm">AED {it.from.toLocaleString()}</span>
+                      </div>
+                    )}
                   </div>
-                )}
-                <div className="p-7">
-                <h3 className="font-display text-xl text-primary">{it.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
-                {it.from && (
-                  <div className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">
-                    Starting from <span className="text-accent font-semibold text-sm">AED {it.from.toLocaleString()}</span>
-                  </div>
-                )}
-                <div className="mt-6 flex gap-2">
+                </Link>
+                <div className="p-7 pt-6">
+                <div className="flex gap-2">
                   <Link
                     to="/estimate"
                     search={it.estimateId ? { product: it.estimateId } : undefined}
